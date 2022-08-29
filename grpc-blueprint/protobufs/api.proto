@@ -1,0 +1,19 @@
+// Minimum example of protocol buffer file
+
+// Version:
+syntax = "proto3";
+
+// API request with numeric field ID
+message Request {
+    int32 id = 1;
+}
+
+// API response with numberic field ID
+message Response {
+    bool success = 1;
+}
+
+// Remote procedure call method of API
+service Method {
+    rpc gRPC (Request) returns (Response);
+}

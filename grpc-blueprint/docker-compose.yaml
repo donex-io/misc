@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+
+    client:
+        build:
+            context: .
+            dockerfile: client/Dockerfile
+        environment:
+            APP_HOST: app
+        image: client
+        networks:
+            - microservices
+        ports:
+            - 5000:5000
+
+    app:
+        build:
+            context: .
+            dockerfile: app/Dockerfile
+        image: app
+        networks:
+            - microservices
+
+networks:
+    microservices:
